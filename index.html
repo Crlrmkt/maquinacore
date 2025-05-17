@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Maquina-e</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="contenedor-total">
+
+    <!-- MÁQUINA EXPENDEDORA -->
+    <div class="maquina-vending">
+
+      <!-- ZONA SUPERIOR CON LOGO Y FOCOS -->
+<div class="encabezado-maquina">
+  <div class="focos laterales">
+    <div class="foco rojo"></div>
+    <div class="foco amarillo"></div>
+    <div class="foco verde"></div>
+  </div>
+
+  <div class="logo-maquina">
+    <img src="img/logojuice.png" alt="Mamamooland">
+  </div>
+
+  <div class="focos laterales">
+    <div class="foco rojo"></div>
+    <div class="foco amarillo"></div>
+    <div class="foco verde"></div>
+    <img src="img/sticker-koi.png" class="sticker sticker-2">
+  </div>
+</div>
+      <!-- VITRINA DE PRODUCTOS -->
+      <div class="vitrina">
+
+        <div class="nivel-repisa">
+          <div class="luz-repisa"></div>
+          <div class="repisa">
+            <div class="producto-con-etiqueta">
+              <img src="img/soda-rosa.png" class="producto">
+              <span class="etiqueta">SODA</span>
+            </div>
+            <div class="producto-con-etiqueta">
+              <img src="img/naranjada.png" class="producto">
+              <span class="etiqueta">NARJ</span>
+            </div>
+            <div class="producto-con-etiqueta">
+              <img src="img/soja.png" class="producto">
+              <span class="etiqueta">SOJA</span>
+            </div>
+            <div class="producto-con-etiqueta">
+              <img src="img/te.png" class="producto">
+              <span class="etiqueta">TÉ</span>
+            </div>
+            <div class="producto-con-etiqueta">
+              <img src="img/melon.png" class="producto">
+              <span class="etiqueta">MELON</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="nivel-repisa">
+          <div class="luz-repisa"></div>
+          <div class="repisa">
+            <div class="producto-con-etiqueta">
+              <img src="img/agua.png" class="producto">
+              <span class="etiqueta">AGUA</span>
+            </div>
+            <div class="producto-con-etiqueta">
+              <img src="img/uva.png" class="producto">
+              <span class="etiqueta">UVA</span>
+            </div>
+            <div class="producto-con-etiqueta">
+              <img src="img/fresa.png" class="producto">
+              <span class="etiqueta">FRESA</span>
+            </div>
+            <div class="producto-con-etiqueta">
+              <img src="img/agua2.png" class="producto">
+              <span class="etiqueta">H2o</span>
+            </div>
+            <div class="producto-con-etiqueta">
+              <img src="img/sport.png" class="producto">
+              <span class="etiqueta">SPORT</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="nivel-repisa">
+          <div class="luz-repisa"></div>
+          <div class="repisa">
+            <div class="producto-con-etiqueta">
+              <img src="img/calips.png" class="producto">
+              <span class="etiqueta">CALIPS</span>
+            </div>
+            <div class="producto-con-etiqueta">
+              <img src="img/choco.png" class="producto">
+              <span class="etiqueta">CHOCO</span>
+            </div>
+            <div class="producto-con-etiqueta">
+              <img src="img/MLK-CF.png" class="producto">
+              <span class="etiqueta">MLK-CF</span>
+            </div>
+            <div class="producto-con-etiqueta">
+              <img src="img/MATCHA.png" class="producto">
+              <span class="etiqueta">MATCHA</span>
+            </div>
+            <div class="producto-con-etiqueta">
+              <img src="img/HZL-CF.png" class="producto">
+              <span class="etiqueta">HZL-CF</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="nivel-repisa">
+          <div class="luz-repisa"></div>
+          <div class="repisa">
+            <div class="producto-con-etiqueta">
+              <img src="img/CLB-CF.png" class="producto">
+              <span class="etiqueta">CLB-CF</span>
+            </div>
+            <div class="producto-con-etiqueta">
+              <img src="img/latte.png" class="producto">
+              <span class="etiqueta">LATTE</span>
+            </div>
+            <div class="producto-con-etiqueta">
+              <img src="img/green.png" class="producto">
+              <span class="etiqueta">GREEN</span>
+            </div>
+            <div class="producto-con-etiqueta">
+              <img src="img/coffe.png" class="producto">
+              <span class="etiqueta">COFFE</span>
+            </div>
+            <div class="producto-con-etiqueta">
+              <img src="img/caffe-b.png" class="producto">
+              <span class="etiqueta">SHOT</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+<!-- PANEL DE CONTROL REDISEÑADO -->
+<div class="modulo-control-lateral">
+
+    <!-- PANTALLA PROMOCIONAL INTEGRADA -->
+    <div class="pantalla-promocional">
+      <img src="img/publicidad.gif" alt="Publicidad Mamamooland">
+    </div>
+
+  <!-- CONTENEDOR COMPLETO -->
+  <div class="panel-seleccion-enmarcado">
+    
+    <!-- MONEDERO -->
+    <div class="coin-box">
+      <div class="ranura"></div>
+      <div class="texto-coin">COIN</div>
+    </div>
+
+    <!-- MANDO MECÁNICO + PANTALLA -->
+    <div class="mando-completo">
+      <button class="btn-fisico" id="btn-izq">◀</button>
+      <div class="pantalla-seleccion" id="pantalla-seleccion">MATCHA</div>
+      <button class="btn-fisico" id="btn-der">▶</button>
+    </div>
+<!-- BOTONES ADD Y PUSH EN UNA LÍNEA -->
+<div class="botones-linea">
+  <button class="btn-agregar" id="btn-agregar">ADD</button>
+  <button class="btn-push-grande" id="btn-dispensar">PUSH</button>
+</div>
+
+  </div>
+</div>
+
+
+
+ <!-- ZONA DE ENTREGA -->
+<div class="entrega" id="zona-entrega">
+  <p>¡Descubre tu bebida!</p>
+</div>
+
+<!-- BASE DE MÁQUINA (va DENTRO de .maquina-vending) -->
+<div class="base-maquina">
+  <img src="img/sticker-s4.png" class="sticker-base">
+</div>
+</div> <!-- ← este sí cierra .maquina-vending hasta el final -->
+
+
+       <!-- SCRIPT CON LÓGICA -->
+  <script src="script.js"></script>
+
+</body>
+</html>

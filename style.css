@@ -1,0 +1,706 @@
+/* RESET GENERAL */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    image-rendering: pixelated;
+  }
+  
+  body {
+    background-color: #fff04f;
+    font-family: monospace;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: 100vh;
+    padding: 20px 0;
+    overflow-x: hidden;
+    overflow-y: auto;
+  }
+  
+
+  
+  /* CONTENEDOR DE TODO */
+  .contenedor-total {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 30px;
+    margin-top: 20px;
+    position: relative;
+  }
+  
+  /* MÁQUINA EXPENDEDORA */
+  .maquina-vending {
+    width: 30px;
+    background-color: #ff4757;
+    border: 4px solid #000;
+    box-shadow: 10px 10px 0 #333;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 6px;
+    position: relative;
+    z-index: 2;
+  }
+  
+  .encabezado-maquina {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 10px;
+  }
+  
+  .focos.laterales {
+    display: flex;
+    gap: 6px;
+  }
+  
+  .foco {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    border: 1px solid #000;
+    box-shadow: 0 0 6px rgba(255, 255, 255, 0.7);
+  }
+  
+  .rojo {
+    background-color: #eaa315;
+    box-shadow: 0 0 8px #f88f66, 0 0 4px #f0833f inset;
+  }
+  
+  .amarillo {
+    background-color: #fff700;
+    box-shadow: 0 0 8px #fff700, 0 0 4px #fff700 inset;
+  }
+  
+  .verde {
+    background-color: #53ff4d;
+    box-shadow: 0 0 8px #53ff4d, 0 0 4px #53ff4d inset;
+  }
+  
+  .logo-maquina img {
+    width: 90px;
+    height: auto;
+    image-rendering: pixelated;
+  }
+  
+  /* VITRINA */
+  .vitrina {
+    width: 100%;
+    background-color: #fff;
+    border: 3px solid #000;
+    padding: 5px;
+    margin-bottom: 2px;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  /* REPISAS */
+  .nivel-repisa {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+  }
+  
+  .repisa {
+    display: flex;
+    justify-content: space-around;
+    background-color: #eee;
+    border: 2px solid #000;
+    padding: 2px;
+  }
+  
+  .producto {
+    width: 40px;
+    height: 40px;
+    border: 2px solid #cdcdcd;
+    background-color: #fafafa;
+  }
+  
+  .producto-con-etiqueta {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .etiqueta {
+    background-color: #ffe600;
+    color: #000;
+    font-size: 7px;
+    padding: 2px 6px;
+    border: 1px solid #000;
+    border-radius: 10px;
+    margin-top: 4px;
+    font-weight: bold;
+    box-shadow: 1px 1px 0 #000;
+  }
+  
+
+  /* BOTÓN */
+  .panel-boton {
+    margin: 8px 0;
+  }
+  
+  button#btn-dispensar {
+    background-color: #ffe600;
+    border: 3px solid #000;
+    color: #000;
+    font-weight: bold;
+    padding: 6px 12px;
+    font-size: 14px;
+    cursor: pointer;
+    box-shadow: 0 3px 0 #000;
+    transition: transform 0.1s;
+  }
+  
+  button#btn-dispensar:active {
+    transform: translateY(2px);
+    box-shadow: none;
+  }
+  
+  /* ZONA DE ENTREGA */
+  .entrega {
+    width: 100%;
+    height: 80px;
+    margin-top: 10px;
+    background-color: #fff;
+    border: 2px solid #000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    position: relative;
+    font-size: 14px;
+    color: #ffffff;
+  }
+  
+  .entrega img {
+    width: 50px;
+    height: 50px;
+    animation: aparecer 0.4s ease;
+  }
+  
+  @keyframes aparecer {
+    from { transform: translateY(-10px); opacity: 0; }
+    to   { transform: translateY(0); opacity: 1; }
+  }
+  
+  .producto-animado {
+    width: 60px;
+    height: 60px;
+    position: relative;
+    animation: bajarProducto 0.7s ease-out;
+  }
+  
+  @keyframes bajarProducto {
+    0% {
+      transform: translateY(-200px) scale(0.5);
+      opacity: 0;
+    }
+    80% {
+      transform: translateY(5px) scale(1.05);
+      opacity: 1;
+    }
+    100% {
+      transform: translateY(0px) scale(1);
+    }
+  }
+  
+  /* ZONA DE ENTREGA ACTIVA LED */
+  .zona-entrega-activa {
+    animation: brilloLed 0.6s infinite alternate;
+    background-color: #fffde6;
+  }
+  
+  @keyframes brilloLed {
+    0% {
+      box-shadow: 0 0 4px #fffde8, inset 0 0 6px #fffeee;
+    }
+    100% {
+      box-shadow: 0 0 12px #f9f7de, inset 0 0 12px #f7f3e4;
+    }
+  }
+  
+  /* PANEL LATERAL */
+  .panel-lateral {
+    width: 130px;
+    height: 320px;
+    background-color: #fff;
+    border: 2px solid #000;
+    box-shadow: 6px 6px 0 #00000030;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 6px;
+    border-radius: 6px;
+    position: relative;
+  }
+  
+  .panel-lateral img {
+    max-width: 100%;
+    height: auto;
+    image-rendering: pixelated;
+  }
+  
+  /* TUBO LATERAL */
+  .tubo-lateral {
+    width: 140px;
+    height: 24px;
+    background-color: #fff;
+    border: 3px solid #000;
+    border-radius: 6px;
+    margin-left: -10px;
+    margin-top: 40px;
+    box-shadow: 4px 4px 0 #00000050;
+    position: relative;
+    z-index: 2;
+  }
+  
+  /* PISO */
+  .piso-vending {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 520px;
+    height: 40px;
+    background-color: #f4c63d;
+    border-top: 4px solid #dba700;
+    box-shadow: inset 0 10px 10px #eac23d;
+    border-radius: 20px 20px 0 0;
+    z-index: 0;
+  }
+  
+
+  .panel-boton-extendido {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    margin: 12px 0;
+    gap: 10px;
+  }
+  
+  .lado-boton {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+  }
+  
+  .lado-opciones {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+  }
+  
+  .ranura {
+    background-color: #fff;
+    border: 2px solid #000;
+    width: 60px;
+    height: 36px;
+    position: relative;
+    border-radius: 4px;
+    box-shadow: inset 0 2px 4px #aaa;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+  }
+  
+  .ranura .línea {
+    width: 80%;
+    height: 6px;
+    background-color: #000;
+    margin-bottom: 4px;
+  }
+  
+  .texto-ranura {
+    font-size: 10px;
+    font-weight: bold;
+  }
+
+  /* FOCOS CON ANIMACIÓN PARPADEO */
+.rojo {
+  background-color: #cff623;
+  animation: parpadeo-rojo 1s infinite alternate;
+  box-shadow: 0 0 8px #cff623, 0 0 4px #cff623 inset;
+}
+
+.amarillo {
+  background-color: #fff700;
+  animation: parpadeo-amarillo 1.3s infinite alternate;
+  box-shadow: 0 0 8px #fff700, 0 0 4px #fff700 inset;
+}
+
+.verde {
+  background-color: #53ff4d;
+  animation: parpadeo-verde 0.9s infinite alternate;
+  box-shadow: 0 0 8px #53ff4d, 0 0 4px #53ff4d inset;
+}
+
+/* KEYFRAMES INDIVIDUALES */
+@keyframes parpadeo-rojo {
+  0% { opacity: 0.5; transform: scale(1); }
+  100% { opacity: 1; transform: scale(1.1); }
+}
+
+@keyframes parpadeo-amarillo {
+  0% { opacity: 0.6; transform: scale(1); }
+  100% { opacity: 1; transform: scale(1.1); }
+}
+
+@keyframes parpadeo-verde {
+  0% { opacity: 0.4; transform: scale(1); }
+  100% { opacity: 1; transform: scale(1.1); }
+}
+
+.panel-boton-extendido {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  width: 100%;
+  margin: 12px 0;
+  gap: 8px;
+}
+
+.lado-boton {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+}
+
+button#btn-dispensar {
+  background-color: #ffe600;
+  border: 3px solid #000;
+  color: #000;
+  font-weight: bold;
+  padding: 6px 12px;
+  font-size: 14px;
+  cursor: pointer;
+  box-shadow: 0 3px 0 #000;
+  transition: transform 0.1s;
+}
+
+button#btn-dispensar:active {
+  transform: translateY(2px);
+  box-shadow: none;
+}
+
+/* Reflejo animado temporal */
+.vitrina::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  background: linear-gradient(
+    135deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.4) 40%,
+    rgba(255, 255, 255, 0.15) 60%,
+    transparent 80%
+  );
+  z-index: 3;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+/* Clase activa que lanza la animación */
+.vitrina.reflejo-activo::before {
+  animation: barridoReflejo 1.2s ease-out;
+  opacity: 1;
+}
+
+/* Animación de barrido diagonal */
+@keyframes barridoReflejo {
+  0% {
+    left: -100%;
+    opacity: 0;
+  }
+  20% {
+    opacity: 1;
+  }
+  50% {
+    left: 50%;
+    opacity: 1;
+  }
+  100% {
+    left: 100%;
+    opacity: 0;
+  }
+}
+
+.sticker {
+  position: absolute;
+  width: 32px;
+  height: auto;
+  image-rendering: pixelated;
+  z-index: 10;
+}
+
+/* Ubicaciones personalizadas */
+.sticker-1 {
+  top: 80px;
+  left: -4px;
+  transform: rotate(-10deg);
+}
+
+.sticker-2 {
+  bottom: 250px;
+  right: 5px;
+  transform: rotate(15deg);
+}
+
+.base-maquina {
+  width: 100%;
+  height: 40px;
+  background: #ff4757;
+  border-top: 3px solid #000;
+  box-shadow: inset 0 4px 6px rgba(0, 0, 0, 0.4);
+  border-radius: 0 0 6px 6px;
+  position: relative;
+}
+
+.sticker-base {
+  position: absolute;
+  bottom: 4px;
+  left: 50%;
+  transform: translateX(-50%) rotate(-3deg);
+  width: 20px;
+  image-rendering: pixelated;
+}
+
+.entrega {
+  background-color: #fefefe;
+  border: 4px solid #1e1e1e;
+  box-shadow:
+    inset 0 6px 10px rgba(0, 0, 0, 0.3),
+    inset 0 -4px 6px rgba(255, 255, 255, 0.4),
+    0 4px 0 #000;
+  border-radius: 4px;
+  position: relative;
+}
+.entrega::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 200%;
+  height: 100%;
+  background: linear-gradient(
+    120deg,
+    transparent,
+    rgba(255, 255, 255, 0.3),
+    transparent
+  );
+  animation: reflejoBrillante 4s infinite;
+  pointer-events: none;
+}
+
+@keyframes reflejoBrillante {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+
+.entrega {
+  background-image: repeating-linear-gradient(
+    45deg,
+    #1c1c1c,
+    #1c1c1c 4px,
+    #2a2a2a 4px,
+    #2a2a2a 8px
+  );
+}
+
+.entrega::after {
+  content: "";
+  position: absolute;
+  width: 60%;
+  height: 100%;
+  left: -60%;
+  top: 0;
+  background: linear-gradient(
+    120deg,
+    transparent 30%,
+    rgba(255,255,255,0.2) 50%,
+    transparent 70%
+  );
+  animation: brilloDeslizante 5s infinite;
+  pointer-events: none;
+}
+
+@keyframes brilloDeslizante {
+  0% { left: -60%; }
+  100% { left: 120%; }
+}
+
+.maquina-vending {
+  width: 100%;
+  max-width: 290px; /* o el ancho que usas en escritorio */
+  margin: 0 auto;
+}
+
+@media (max-width: 480px) {
+  .maquina-vending {
+    transform: scale(1.1); /* la hace más grande visualmente en móviles */
+  }
+}
+
+.modulo-control-lateral {
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+  width: 100%;
+}
+
+/* Cuadro del módulo */
+.panel-seleccion-enmarcado {
+  background-color: #ff4757;
+  border: 1px solid #000;
+  border-radius: 6px;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  box-shadow: inset 0 0 10px #bababa;
+  width: 120px;
+}
+
+/* Coin slot */
+.coin-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  background-color: #eee;
+  border: 2px solid #000;
+  padding: 6px 10px;
+  width: 100px; /* Ajuste más estrecho y estético */
+  box-shadow: inset 0 0 6px #aaa;
+  border-radius: 6px;
+  margin: 0 auto; /* Asegura el centrado horizontal */
+}
+
+.ranura {
+  width: 80%;
+  height: 5px;
+  background: #000;
+  margin-bottom: 4px;
+  border-radius: 2px;
+}
+
+.texto-coin {
+  font-size: 7px;
+  font-family: monospace;
+  color: #111;
+  letter-spacing: 1px;
+}
+
+
+/* Mando mecánico */
+.mando-completo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+}
+.btn-fisico {
+  background-color: #c0c0c0;
+  border: 1px solid #000;
+  color: #000;
+  font-size: 7px;
+  padding: 4px 4px;
+  font-weight: bold;
+  font-family: monospace;
+  box-shadow: inset -1px -1px 2px #fff, inset 2px 2px 3px #555;
+  cursor: pointer;
+}
+
+.pantalla-seleccion {
+  background-color: #111;
+  color: #00ffaa;
+  padding: 2px 8px;
+  border: 2px solid #00ffaa;
+  font-family: monospace;
+  font-size: 10px;
+  text-shadow: 0 0 2px #00ffaa;
+  width: 60px;
+  text-align: center;
+}
+
+
+
+.pantalla-promocional {
+  margin-top: 8px;
+  margin-right: 8px; /* ← Aquí damos espacio a la derecha */
+  width: 100%;
+  height: 90px;
+  background-color: #0b0a0a;
+  border-top: 1px solid #000;
+  border-right: 3px solid #000;
+  border-bottom: 1px solid #000;
+  border-left: 1px solid #999;
+  box-shadow:
+    inset 0 0 10px #686868,
+    2px 0 4px rgba(0, 0, 0, 0.2);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 4px;
+  border-radius: 4px;
+}
+
+.pantalla-promocional img {
+  max-height: 100%;
+  max-width: 100%;
+  object-fit: contain;
+  image-rendering: pixelated;
+}
+
+.check-mini {
+  font-size: 10px;
+  vertical-align: middle;
+  margin-left: 4px;
+}
+
+.botones-accion {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+/* Botones ADD y PUSH */
+.btn-agregar,
+.btn-push-grande {
+  background-color: #ffe600;
+  border: 3px solid #000;
+  padding: 2px 4px;
+  font-family: monospace;
+  font-size: 10px;
+  color: #000;
+  font-weight: bold;
+  text-align: center;
+  cursor: pointer;
+  box-shadow: 3px 3px 0 #444;
+  transition: transform 0.1s;
+}
+
+.btn-agregar:active,
+.btn-push-grande:active {
+  transform: translate(2px, 2px);
+  box-shadow: 1px 1px 0 #444;
+}
